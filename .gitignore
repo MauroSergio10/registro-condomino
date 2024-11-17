@@ -6,3 +6,6 @@ backend/node_modules/
 
 # Ignorar node_modules dentro do diretório frontend
 frontend/node_modules/
+
+# Remover o gitignore
+backend/.env
