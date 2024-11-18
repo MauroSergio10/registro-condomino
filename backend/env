@@ -1,5 +1,0 @@
-DB_USER=postgres 
-DB_PASSWORD=Hutao82815523
-DB_NAME=condominio
-DB_HOST=condominio.crww0i2gih84.us-east-2.rds.amazonaws.com
-DB_PORT=5432
