@@ -1,5 +1,4 @@
-import { Request, Response, NextFunction } from 'express';
-
+import express, { Request, Response, NextFunction } from 'express';
 import dotenv from "dotenv";
 import {PrismaClient} from "@prisma/client";
 
@@ -8,12 +7,14 @@ dotenv.config()
 const app = express();
 const prisma = new PrismaClient()
 
+app.use(express.json());
+
 
 app.get("/"), (req: Request, res: Response) => {
     res.send("Bem Vindo ao registro de sistema de condomínio");
 }
 
-app.post("/condominio", async (req: Request, res: Response)){
+app.post("/condominio", async (req: Request, res: Response) => {
     const {ap, propietario, administradores, emails, telefones} = req.body;
 
     try{
@@ -24,4 +25,10 @@ app.post("/condominio", async (req: Request, res: Response)){
     } catch(error){
         res.status(500).json({error: "Erro ao criar condominio"});
     }
-}
+})
+
+const PORT = process.env.port || 3000;
+
+app.listen(PORT, () =>{
+    console.log(`Servidor rodando na ${PORT}`);
+})
