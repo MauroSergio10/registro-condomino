@@ -1,34 +1,21 @@
-import express, { Request, Response, NextFunction } from 'express';
-import dotenv from "dotenv";
-import {PrismaClient} from "@prisma/client";
+import express from 'express';
+import registerUser from './routes/registerUser'
 
-dotenv.config()
-
+// Criação do app
 const app = express();
-const prisma = new PrismaClient()
+const port = 3000;
 
+// Middleware para permitir parsing de JSON
 app.use(express.json());
 
+// Rota principal
+app.get('/', (req, res) => {
+  res.send('Hello, TypeScript + Express!');
+});
 
-app.get("/"), (req: Request, res: Response) => {
-    res.send("Bem Vindo ao registro de sistema de condomínio");
-}
+app.use('/registerUser', registerUser)
 
-app.post("/condominio", async (req: Request, res: Response) => {
-    const {ap, propietario, administradores, emails, telefones} = req.body;
-
-    try{
-        const condominio = await prisma.condominio.create({
-            data: {ap, propietario, administradores, emails, telefones}
-        });
-        res.status(201).json(condominio);
-    } catch(error){
-        res.status(500).json({error: "Erro ao criar condominio"});
-    }
-})
-
-const PORT = process.env.port || 3000;
-
-app.listen(PORT, () =>{
-    console.log(`Servidor rodando na ${PORT}`);
-})
+// Iniciar o servidor
+app.listen(port, () => {
+  console.log(`Servidor rodando em http://localhost:${port}`);
+});

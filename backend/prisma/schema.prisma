@@ -14,7 +14,7 @@ datasource db {
 }
 
 model condominio { 
-  ap INT @id//Número do apartamento
+  ap Int @id//Número do apartamento
   propietario String
   administradores String[]
   emails String[]
