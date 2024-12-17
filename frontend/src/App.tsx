@@ -1,8 +1,13 @@
 import React from "react";
 import logo from "./logo.svg";
+import Navigation from "./navigation";
 
-function App() {
-  return <div className="App">a</div>;
-}
+const App: React.FC = () => {
+  return (
+    <div className="App">
+      <Navigation />
+    </div>
+  );
+};
 
 export default App;
