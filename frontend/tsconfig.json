@@ -1,26 +1,19 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx"
+    "target": "ES6", // Define a versão do JavaScript alvo (ES6 ou superior).
+    "lib": ["DOM", "DOM.Iterable", "ESNext"], // Bibliotecas padrão que serão incluídas.
+    "module": "ESNext", // Usa módulos ESNext, adequado para React.
+    "moduleResolution": "Node", // Resolve módulos como no Node.js.
+    "esModuleInterop": true, // Permite import padrão em CommonJS.
+    "allowSyntheticDefaultImports": true, // Suporta importações padrão em módulos sem padrão.
+    "skipLibCheck": true, // Ignora verificação de tipos em arquivos .d.ts.
+    "strict": true, // Ativa verificações mais rígidas de TypeScript.
+    "forceConsistentCasingInFileNames": true, // Força uso consistente de maiúsculas e minúsculas.
+    "jsx": "react-jsx", // Define como o JSX será transformado (para React).
+    "noFallthroughCasesInSwitch": true, // Impede casos não tratados em switch.
+    "resolveJsonModule": true, // Permite importar arquivos JSON.
+    "isolatedModules": true // Necessário para trabalhar com React.
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src"], // Inclui a pasta `src` no projeto.
+  "exclude": ["node_modules", "dist"] // Exclui pastas desnecessárias.
 }
